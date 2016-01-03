@@ -22,7 +22,8 @@
     [_pop setImages:images];
     [_pop setViewControllers:@[fVC, sVC, tVC]];
     [_pop setPopViewWidth:180 andHeight:220];
-```
+    
+
 ps. `titles`是表格显示的标题。`images`是cell图片。`setViewControllers:@[fVC, sVC, tVC]`是需要跳转的控制器数组(三个)。`setPopViewWidth:180 andHeight:220`设置泡泡的宽高。
 
 截图：
