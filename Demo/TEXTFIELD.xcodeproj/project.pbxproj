@@ -544,6 +544,7 @@
 				41FB459A1C392D50009BA68D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41FB459B1C392D50009BA68D /* Build configuration list for PBXNativeTarget "TEXTFIELDTests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +553,7 @@
 				41FB459D1C392D50009BA68D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41FB459E1C392D50009BA68D /* Build configuration list for PBXNativeTarget "TEXTFIELDUITests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +562,7 @@
 				41FB45A01C392D50009BA68D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -110,12 +110,10 @@ static NSString *const identifier = @"reuseIdentifier";
     CGFloat minY = [self minPoints].y;
     CGFloat maxY = [self maxPoints].y;
     
-    NSLog(@"%f, %f->%f, %f", minX, maxX, minY, maxY);
     
     CGFloat tapX = [tap locationInView:_backgroundView].x;
     CGFloat tapY = [tap locationInView:_backgroundView].y;
     
-    NSLog(@"%f -----> %f", tapX, tapY);
     
     if ((tapX >= minX && tapX <= maxX) && (tapY >= minY && tapY <= maxY)) {
         //
@@ -293,12 +291,7 @@ static NSString *const identifier = @"reuseIdentifier";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if (self.viewControllers.count < self.titles.count) {
-        return;
-    }
-    [self dismissDirectly];
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate.nav pushViewController:self.viewControllers[indexPath.row] animated:YES];
+    [self.delegate view:self didSelectAtIndexPath:indexPath.row];
 }
 #pragma mark --
 @end

@@ -12,7 +12,7 @@
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<XXPopSheetDelegate>
 @property (nonatomic, strong)XXPopSheetView *pop;
 @end
 
@@ -42,14 +42,33 @@
 #pragma mark - responder
 - (void)buttonPressed:(UIButton *)button {
     _pop = [[XXPopSheetView alloc] initWithFrame:button.frame];
+    [_pop setDelegate:self];
     NSArray *titles = @[@"title 1", @"title 2", @"title 3"];
     NSArray *images = @[@"image1", @"image2", @"image3"];
+    [_pop setTitles:titles];
+    [_pop setImages:images];
+    [_pop setPopViewWidth:180 andHeight:132];
+}
+
+- (void)view:(XXPopSheetView *)popView didSelectAtIndexPath:(NSInteger)index {
+    [_pop dismiss];
     FirstViewController *fVC = [[FirstViewController alloc] init];
     SecondViewController *sVC = [[SecondViewController alloc] init];
     ThirdViewController *tVC = [[ThirdViewController alloc] init];
-    [_pop setTitles:titles];
-    [_pop setImages:images];
-    [_pop setViewControllers:@[fVC, sVC, tVC]];
-    [_pop setPopViewWidth:180 andHeight:220];
+    UIViewController *vc;
+    switch (index) {
+        case 0:
+            vc = fVC;
+            break;
+            case 1:
+            vc = sVC;
+            break;
+            case 2:
+            vc = tVC;
+            break;
+        default:
+            break;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
